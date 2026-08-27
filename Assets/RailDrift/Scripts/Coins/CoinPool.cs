@@ -29,7 +29,7 @@ public class CoinPool : MonoBehaviour
 		createFunc: () =>
 		{
 			GameObject obj = Instantiate(Coin);
-			SceneManager.MoveGameObjectToScene(obj, gameObject.scene);
+			SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName("GamePlayScene"));
 
 			return obj;
 		},
@@ -52,8 +52,9 @@ public class CoinPool : MonoBehaviour
 
 	public void Release(GameObject obj)
 	{
-		_pool.Release(obj);
+		ReturnToPoll(obj);
 		OnGetCoin?.Invoke();
-		Debug.Log("Z");
 	}
+
+	public void ReturnToPoll(GameObject obj) => _pool.Release(obj);
 }

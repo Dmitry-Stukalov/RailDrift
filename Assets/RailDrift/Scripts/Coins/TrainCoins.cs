@@ -8,14 +8,21 @@ public class TrainCoins : MonoBehaviour
 
 	private void Start()
 	{
-		CoinPool.OnGetCoin += UpdateText;
+		CoinPool.OnGetCoin += AddCoin;
 		GameEvents.OnGameOver += GameOver;
+
+		UpdateText();
 	}
 
 	private void UpdateText()
 	{
-		_currentCoins++;
 		_coinsCount.text = $"X{_currentCoins}";
+	}
+
+	private void AddCoin()
+	{
+		_currentCoins++;
+		UpdateText();
 	}
 
 	private void GameOver(string text)
@@ -26,7 +33,7 @@ public class TrainCoins : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		CoinPool.OnGetCoin -= UpdateText;
+		CoinPool.OnGetCoin -= AddCoin;
 		GameEvents.OnGameOver -= GameOver;
 	}
 }

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MenuUI" src="project://database/Assets/RailDrift/UI/MenuUI.uxml?fileID=9197481963319205126&amp;guid=6e1d4678a36819345a46d528604404bc&amp;type=3#MenuUI" />
+    <ui:Template name="PlayerUI" src="project://database/Assets/RailDrift/UI/PlayerUI.uxml?fileID=9197481963319205126&amp;guid=c935dfd2c37191346a47126418270397&amp;type=3#PlayerUI" />
+    <ui:Instance template="MenuUI" name="MenuUI" style="width: 100%; height: 100%; position: absolute;" />
+    <ui:Instance template="PlayerUI" name="PlayerUI" style="width: 100%; height: 100%; position: absolute;" />
+</ui:UXML>

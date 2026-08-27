@@ -17,7 +17,7 @@ public class StateMachineChoice : StateMachineState
 
 	public override void Enter()
 	{
-		_stateManager.Speed += 0.02f;
+		_stateManager.Speed += 0.04f;
 
 		IsFrontChoiceTime = true;
 		IsDoFrontChoice = false;

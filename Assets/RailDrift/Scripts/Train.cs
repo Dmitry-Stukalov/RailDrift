@@ -33,9 +33,14 @@ public class Train : MonoBehaviour
 		_stateManager.AddState(3, new StateMachineGameOver(3, _stateManager, _track, gameObject, _frontWheels, _backWheels, _frontLeftLight, _frontRightLight, _backLeftLight, _backRightLight, _scoreCounter));
 		_stateManager.SetState(0);
 
-		IsStart = true;
+		GameEvents.OnGameStart += StartGame;
+		GameEvents.OnGameRestart += StartGame;
+		GameEvents.OnGameOver += EndGame;
 	}
 
+	private void StartGame() => IsStart = true;
+
+	private void EndGame(string text) => IsStart = false;
 
 	public StateMachineManager GetStateManager() => _stateManager;
 
@@ -49,5 +54,9 @@ public class Train : MonoBehaviour
 	private void OnDestroy()
 	{
 		_stateManager?.Destroy();
+
+		GameEvents.OnGameStart -= StartGame;
+		GameEvents.OnGameRestart -= StartGame;
+		GameEvents.OnGameOver -= EndGame;
 	}
 }

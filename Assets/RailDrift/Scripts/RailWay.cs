@@ -37,5 +37,6 @@ public class RailWay : MonoBehaviour
 	public void Release()
 	{
 		_pool.ReleaseRailWay(id, gameObject);
+		GetComponent<CoinsWay>().ReleaseCoins();
 	}
 }

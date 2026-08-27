@@ -7,6 +7,9 @@ public static class GameEvents
 {
 	public static bool IsPressing { get; set; } = false;
 
+	public static Action OnGameStart;
+	public static Action OnGameRestart;
+
 	public static Action<List<Transform>> OnAddFrontRailWay;
 	public static Action<List<Transform>> OnAddBackRailWay;
 
@@ -32,5 +35,6 @@ public static class GameEvents
 
 	public static Action<int> OnAddCoins { get; set; }
 
+	public static Action OnMainMenu;
 	public static Action<string> OnGameOver;
 }
