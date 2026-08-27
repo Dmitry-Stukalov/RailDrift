@@ -2,10 +2,13 @@ using NUnit.Framework;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public static class GameEvents
 {
 	public static bool IsPressing { get; set; } = false;
+	public static bool IsRestartGame { get; set; } = false;
+	public static bool IsInMenu {  get; set; } = false;
 
 	public static Action OnGameStart;
 	public static Action OnGameRestart;

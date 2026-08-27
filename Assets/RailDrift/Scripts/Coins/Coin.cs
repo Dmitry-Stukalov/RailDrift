@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.transform.CompareTag("FrontWheel")) ReleaseCoin();
+		if (collision.transform.CompareTag("FrontWheel") && !GameEvents.IsInMenu) ReleaseCoin();
 	}
 
 	private void ReleaseCoin()

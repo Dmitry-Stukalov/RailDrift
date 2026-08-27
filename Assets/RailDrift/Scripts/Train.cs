@@ -31,7 +31,15 @@ public class Train : MonoBehaviour
 		_stateManager.AddState(1, new StateMachineChoice(1, _stateManager, _track, gameObject, _frontWheels, _backWheels, _frontLeftLight, _frontRightLight, _backLeftLight, _backRightLight, _scoreCounter));
 		_stateManager.AddState(2, new StateMachineDrift(2, _stateManager, _track, gameObject, _frontWheels, _backWheels, _frontLeftLight, _frontRightLight, _backLeftLight, _backRightLight, _scoreCounter));
 		_stateManager.AddState(3, new StateMachineGameOver(3, _stateManager, _track, gameObject, _frontWheels, _backWheels, _frontLeftLight, _frontRightLight, _backLeftLight, _backRightLight, _scoreCounter));
-		_stateManager.SetState(0);
+		_stateManager.AddState(4, new StateMachineView(4, _stateManager, _track, gameObject, _frontWheels, _backWheels, _frontLeftLight, _frontRightLight, _backLeftLight, _backRightLight, _scoreCounter));
+
+		if (GameEvents.IsRestartGame)
+		{
+			GameEvents.IsRestartGame = false;
+			_stateManager.SetState(0);
+			StartGame();
+		}
+		else _stateManager.SetState(4);
 
 		GameEvents.OnGameStart += StartGame;
 		GameEvents.OnGameRestart += StartGame;
@@ -46,8 +54,6 @@ public class Train : MonoBehaviour
 
 	private void Update()
 	{
-		if (!IsStart) return;
-
 		_stateManager?.Update();
 	}
 

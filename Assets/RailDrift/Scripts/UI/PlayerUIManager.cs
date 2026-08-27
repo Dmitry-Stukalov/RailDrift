@@ -106,6 +106,8 @@ public class PlayerUIManager : MonoBehaviour
 		_mainMenuButton.style.display = DisplayStyle.None;
 		_loseText.style.display = DisplayStyle.None;
 
+		GameEvents.IsRestartGame = true;
+
 		GameEvents.OnGameRestart?.Invoke();
 	}
 

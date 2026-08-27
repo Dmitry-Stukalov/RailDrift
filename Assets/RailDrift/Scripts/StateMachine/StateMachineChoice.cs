@@ -97,6 +97,17 @@ public class StateMachineChoice : StateMachineState
 
 	private void DoFrontChoice()
 	{
+		if (GameEvents.IsInMenu)
+		{
+			List<TrackChoice> autoChoices = new List<TrackChoice>(_stateManager.LastExitPoint.GetChoices());
+
+			ResultFrontDirection(autoChoices[0].ResultDirections);
+			ResultBackDirection(autoChoices[0].ResultDirections);
+
+			_stateManager.SetState(4);
+			return;
+		}
+
 		FrontEndLight();
 		IsFrontChoiceTime = false;
 

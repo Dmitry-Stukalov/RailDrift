@@ -38,9 +38,10 @@ public class ScoreCounter
 
         if (value >= 1)
         {
-			_currentScore += value;
+			if (!GameEvents.IsInMenu) _currentScore += value;
 			_difference = 0;
 		}
+		
 
 		GameEvents.OnScoreChange?.Invoke(_currentScore);
 	}

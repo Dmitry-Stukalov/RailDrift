@@ -24,6 +24,7 @@ public class MenuUIManager : MonoBehaviour
 
 	private void StartGame(ClickEvent evt)
 	{
+		GameEvents.IsInMenu = false;
 		GameEvents.OnGameStart?.Invoke();
 	}
 
